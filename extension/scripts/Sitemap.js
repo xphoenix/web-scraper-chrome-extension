@@ -196,7 +196,7 @@ Sitemap.prototype = {
 					cellData = JSON.stringify(cellData);
 				}
 
-				rowData.push('"' + cellData.replace(/"/g, '""').trim() + '"');
+				rowData.push('"' + cellData.replace(/"/g, '\\"').replace(/\n/g,'\\n').trim() + '"');
 			});
 			csvData.push(rowData.join(delimiter) + newline);
 		});
@@ -216,4 +216,3 @@ Sitemap.prototype = {
 		return sitemap;
 	}
 };
-
